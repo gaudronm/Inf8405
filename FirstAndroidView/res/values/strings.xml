@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Bejeweled</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_end">EndOfGameActivity</string>
+    <string name="image_content_description">Fin du jeu</string>
+	<string name="create_account">Créer un compte</string>
+	<string name="username">utilisateur</string>
+	<string name="connect">Se connecter</string>
+	<string name="title_activity_main">main_activity</string>
+	<string name="button1">Meilleurs scores</string>
+	<string name="button2">Modes de jeu</string>
+	<string name="button3">Quitter</string>
+	<string name="scores">Voici les scores : </string>
+	<string name="title_activity_scores">scores_activity</string>
+	<string name="score1">1. XXX </string>
+	<string name="score2">2. XXX</string>
+	<string name="score3">3. XXX</string>
+	<string name="score4">4. XXX</string>
+	<string name="score5">5. XXX</string>
+	<string name="button_start">Je veux recommencer</string>
+	<string name="button_exit">Je veux quitter</string>
+	<string name="button_time">Temps limité</string>
+	<string name="button_moves">Mouvements limités</string>
+	<string name="exit_game">quitter</string>
+	<string name="current_score">xxx</string>
+	<string name="tps_mvts">xxx</string>
+	<string name="xxx">xxx</string>
+	<string name="title_activity_exit">exit_activity</string>
+	<string name="title_activity_game">game_activity</string>
+	<string name="title_activity_mode">mode_activity</string>
+	<string name="ignore">ignorer</string>
+</resources>
