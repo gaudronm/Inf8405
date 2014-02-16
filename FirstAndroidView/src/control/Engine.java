@@ -15,6 +15,12 @@ public class Engine {
 		this.table = new Table();
 	}
 
+	
+	/**
+	 * Permet d'initialiser une partie. On parcourt la table et pour chaque case on
+	 * genere une couleur aleatoirement. On verfie egalement pour chaque case le pouvant
+	 * si elle ne "fini" pas une combinaison de 3.  
+	 */
 	public void initPart() {
 		boolean change, sansSolution;
 		int c;
@@ -24,12 +30,16 @@ public class Engine {
 				for (int j = 0; j < 8; j++) {
 					c = genColAl();
 					change = true;
+					/* si on change la couleur dans la boucle while, il faut tester la nouvelle
+					 couleur. Pour ce faire, on passe le bool change a true pour refaire
+					 un passage de boucle.*/
 					while (change) {
 						change = false;
 						if (i >= 2) {
 							if ((table.getColor(i - 2, j) == table.getColor(
 									i - 1, j)) && c == table.getColor(i - 1, j)) {
 								c = genColAl();
+								change = true;
 							}
 						}
 						if (j >= 2) {
@@ -47,6 +57,15 @@ public class Engine {
 		}
 	}
 
+	/**
+	 * Va permettre de jouer un coup si celui ci est valide et de comptabiliser
+	 * toutes les combinaisons creee lors de la regeneration de la table.
+	 * @param x abscisse de la premiere case a changer
+	 * @param y ordonee de la premiere case a changer
+	 * @param i abscisse de la deuxieme case a changer
+	 * @param j ordonnee de la deuxieme case a changer
+	 * @return le score fait avec ce coup.
+	 */
 	public int playMove(int x, int y, int i, int j) {
 		int color, score;
 		int scoretemp = 0;
@@ -65,6 +84,10 @@ public class Engine {
 		return score;
 	}
 
+	/**
+	 * Deroule la liste des modifications pour voir si elles provoquent de nouvelles combinaions.
+	 * @return le score fait par ces possibles combinaisons.
+	 */
 	private int searchNewComb() {
 		int score = 0;
 		Coordinate coord;
@@ -75,6 +98,9 @@ public class Engine {
 		return score;
 	}
 
+	/**
+	 * Fait "tomber" les gemmes et en genere de nouvelles
+	 */
 	private void regeneration() {
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 8; j++) {
@@ -92,6 +118,15 @@ public class Engine {
 		}
 	}
 
+	/**
+	 * Fait appel a la methode combination pour connaitre le type de combinaison
+	 * puis selon le type, cherche a voir si d'autre cases sont impliquees
+	 * dans la combinaison.
+	 * @param x abscisse de la case a tester
+	 * @param y ordonne de la case a tester
+	 * @param color couleur avec laquelle on souhaite tester la case
+	 * @return le score de la combinaison
+	 */
 	private int breakComb(int x, int y, int color) {
 		int i;
 		int score = 300;
@@ -179,6 +214,11 @@ public class Engine {
 		return 0;
 	}
 
+	/**
+	 * Test les differentes solutions possibles pour chaque case.
+	 * S'arrete a la premiere solution trouvee.
+	 * @return true si une solution a ete trouvee
+	 */
 	private boolean hasSolution() {
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 8; j++) {
@@ -247,10 +287,23 @@ public class Engine {
 		return false;
 	}
 
+	/**
+	 * 
+	 * @return un nombre entre 1 et 5 correspondant a une couleur
+	 */
 	private int genColAl() {
 		return (int) Math.random() * nbColors + 1;
 	}
 
+	/**
+	 * Test si un coup est valide. i.e. Les cases a echanger sont
+	 * voisines et une combinaison est creee grace a ce coup.
+	 * @param x abscisse de la premiere case a changer
+	 * @param y ordonee de la premiere case a changer
+	 * @param i abscisse de la deuxieme case a changer
+	 * @param j ordonnee de la deuxieme case a changer
+	 * @return true si le coup est valide
+	 */
 	private boolean validMove(int x, int y, int i, int j) {
 		if (((x != i) && (y != j))
 				|| ((Math.abs(x - i) != 1) && (Math.abs(y - j) != 1))) {
@@ -263,6 +316,14 @@ public class Engine {
 		return false;
 	}
 
+	/**
+	 * Regarde si une combinaison est possible sur la case selectionnee
+	 * @param x abscisse de la case
+	 * @param y ordonne de la case
+	 * @param color couleur avec laquelle on veut tester
+	 * @return un entier correspondant a un type de combinaison ou
+	 * 0 si aucune combinaison n'est possible
+	 */
 	private int combination(int x, int y, int color) {
 		if ((x - 1 >= 0) && (table.getColor(x - 1, y) == color)) {
 			if ((x - 2 >= 0) && (table.getColor(x - 2, y) == color)) {
