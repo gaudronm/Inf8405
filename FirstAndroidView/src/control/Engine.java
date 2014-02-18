@@ -15,7 +15,9 @@ public class Engine {
 		this.table = new Table();
 	}
 
-	
+	public Table getTable(){
+		return this.table;
+	}
 	/**
 	 * Permet d'initialiser une partie. On parcourt la table et pour chaque case on
 	 * genere une couleur aleatoirement. On verfie egalement pour chaque case le pouvant
