@@ -1,6 +1,7 @@
 package control;
 
 import java.util.List;
+import java.util.Random;
 
 import stockage.Coordinate;
 import stockage.Table;
@@ -31,11 +32,12 @@ public class Engine {
 			for (int i = 0; i < 8; i++) {
 				for (int j = 0; j < 8; j++) {
 					c = genColAl();
+					System.out.println("couleur " + c);
 					change = true;
 					/* si on change la couleur dans la boucle while, il faut tester la nouvelle
 					 couleur. Pour ce faire, on passe le bool change a true pour refaire
 					 un passage de boucle.*/
-					/*while (change) {
+					while (change) {
 						change = false;
 						if (i >= 2) {
 							if ((table.getColor(i - 2, j) == table.getColor(
@@ -51,7 +53,7 @@ public class Engine {
 								change = true;
 							}
 						}
-					}*/
+					}
 					table.setColor(i, j, c);
 				}
 			}
@@ -294,7 +296,9 @@ public class Engine {
 	 * @return un nombre entre 1 et 5 correspondant a une couleur
 	 */
 	private int genColAl() {
-		return (int) Math.random() * nbColors + 1;
+		Random rand = new Random();
+		int nombreAleatoire = rand.nextInt(5) + 1;
+		return nombreAleatoire;
 	}
 
 	/**
