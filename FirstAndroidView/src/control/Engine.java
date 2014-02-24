@@ -35,7 +35,7 @@ public class Engine {
 					/* si on change la couleur dans la boucle while, il faut tester la nouvelle
 					 couleur. Pour ce faire, on passe le bool change a true pour refaire
 					 un passage de boucle.*/
-					while (change) {
+					/*while (change) {
 						change = false;
 						if (i >= 2) {
 							if ((table.getColor(i - 2, j) == table.getColor(
@@ -51,7 +51,7 @@ public class Engine {
 								change = true;
 							}
 						}
-					}
+					}*/
 					table.setColor(i, j, c);
 				}
 			}
