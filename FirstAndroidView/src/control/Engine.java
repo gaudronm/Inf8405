@@ -200,7 +200,7 @@ public class Engine {
 		case 5:
 			table.setColor(x, y, 0);
 			table.setColor(x, y - 1, 0);
-			table.setColor(x, y - 2, 0);
+			table.setColor(x, y + 1, 0);
 			i = 2;
 			while ((y + i <= 7) && (table.getColor(x, y + i) == color)) {
 				table.setColor(x, y + i, color);
@@ -210,8 +210,8 @@ public class Engine {
 			return score;
 		case 6:
 			table.setColor(x, y, 0);
-			table.setColor(x, y - 1, 0);
-			table.setColor(x, y - 2, 0);
+			table.setColor(x, y + 1, 0);
+			table.setColor(x, y + 2, 0);
 			i = 3;
 			while ((y + i <= 7) && (table.getColor(x, y + i) == color)) {
 				table.setColor(x, y + i, color);
