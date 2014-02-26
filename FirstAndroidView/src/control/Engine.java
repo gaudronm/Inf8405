@@ -1,5 +1,6 @@
 package control;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -81,7 +82,7 @@ public class Engine {
 		score = breakComb(x, y, table.getColor(x, y));
 		score = score + breakComb(i, j, color);
 		while (score != scoretemp) {
-			score = scoretemp;
+			scoretemp = score;
 			regeneration();
 			score += searchNewComb();
 		}
@@ -94,10 +95,14 @@ public class Engine {
 	 */
 	private int searchNewComb() {
 		int score = 0;
+		int color;
 		Coordinate coord;
 		while (!liste.isEmpty()) {
 			coord = liste.remove(0);  //peut etre cause de bug : indice 0
-			score += breakComb(coord.getX(), coord.getY(), table.getColor(coord.getX(), coord.getY()));
+			color = table.getColor(coord.getX(), coord.getY());
+			if (color != 0) {
+				score += breakComb(coord.getX(), coord.getY(), color);
+			}
 		}
 		return score;
 	}
@@ -106,6 +111,7 @@ public class Engine {
 	 * Fait "tomber" les gemmes et en genere de nouvelles
 	 */
 	private void regeneration() {
+		liste = new ArrayList<Coordinate>();
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 8; j++) {
 				if (table.getColor(i, j) == 0) {
@@ -310,15 +316,22 @@ public class Engine {
 	 * @param j ordonnee de la deuxieme case a changer
 	 * @return true si le coup est valide
 	 */
-	private boolean validMove(int x, int y, int i, int j) {
+	public boolean validMove(int x, int y, int i, int j) {
 		if (((x != i) && (y != j))
 				|| ((Math.abs(x - i) != 1) && (Math.abs(y - j) != 1))) {
 			return false;
 		}
-		if ((combination(x, y, table.getColor(i, j)) != 0)
-				|| (combination(i, j, table.getColor(x, y))) != 0) {
+		int tempColor = table.getColor(i, j);
+		table.setColor(i, j, table.getColor(x, y));
+		table.setColor(x, y, tempColor);
+		if ((combination(x, y, table.getColor(x, y)) != 0)
+				|| (combination(i, j, table.getColor(i, j))) != 0) {
+			table.setColor(x, y, table.getColor(i, j));
+			table.setColor(i, j, tempColor);
 			return true;
 		}
+		table.setColor(x, y, table.getColor(i, j));
+		table.setColor(i, j, tempColor);
 		return false;
 	}
 
