@@ -147,13 +147,13 @@ public class Engine {
 			table.setColor(x - 2, y, 0);
 			i = -3;
 			while ((x + i >= 0) && (table.getColor(x + i, y) == color)) {
-				table.setColor(x + i, y, color);
+				table.setColor(x + i, y, 0);
 				score += 100;
 				i--;
 			}
 			i = 1;
 			while ((x + i <= 7) && (table.getColor(x + i, y) == color)) {
-				table.setColor(x + i, y, color);
+				table.setColor(x + i, y, 0);
 				score += 100;
 				i++;
 			}
@@ -164,7 +164,7 @@ public class Engine {
 			table.setColor(x + 1, y, 0);
 			i = 2;
 			while ((x + i <= 7) && (table.getColor(x + i, y) == color)) {
-				table.setColor(x + i, y, color);
+				table.setColor(x + i, y, 0);
 				score += 100;
 				i++;
 			}
@@ -175,7 +175,7 @@ public class Engine {
 			table.setColor(x + 2, y, 0);
 			i = 3;
 			while ((x + i <= 7) && (table.getColor(x + i, y) == color)) {
-				table.setColor(x + i, y, color);
+				table.setColor(x + i, y, 0);
 				score += 100;
 				i++;
 			}
@@ -186,13 +186,13 @@ public class Engine {
 			table.setColor(x, y - 2, 0);
 			i = -3;
 			while ((y + i >= 0) && (table.getColor(x, y + i) == color)) {
-				table.setColor(x, y + i, color);
+				table.setColor(x, y + i, 0);
 				score += 100;
 				i--;
 			}
 			i = 1;
 			while ((y + i <= 7) && (table.getColor(x, y + i) == color)) {
-				table.setColor(x, y + i, color);
+				table.setColor(x, y + i, 0);
 				score += 100;
 				i++;
 			}
@@ -203,7 +203,7 @@ public class Engine {
 			table.setColor(x, y + 1, 0);
 			i = 2;
 			while ((y + i <= 7) && (table.getColor(x, y + i) == color)) {
-				table.setColor(x, y + i, color);
+				table.setColor(x, y + i, 0);
 				score += 100;
 				i++;
 			}
@@ -214,7 +214,7 @@ public class Engine {
 			table.setColor(x, y + 2, 0);
 			i = 3;
 			while ((y + i <= 7) && (table.getColor(x, y + i) == color)) {
-				table.setColor(x, y + i, color);
+				table.setColor(x, y + i, 0);
 				score += 100;
 				i++;
 			}
