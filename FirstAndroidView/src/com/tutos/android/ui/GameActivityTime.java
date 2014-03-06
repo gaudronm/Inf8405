@@ -89,7 +89,7 @@ public class GameActivityTime extends Activity {
     	               @Override
     	               public void onClick(View v) {
     	            	   
-    	            	   if(getTime()<3){
+    	            	   if(getTime()<60){
     	                   	
     	            		   if (first) {
         	            		   first = false;
@@ -104,7 +104,7 @@ public class GameActivityTime extends Activity {
         	            		   int k = id2 % 10;
         	            		   int l = id2 / 10;
         	            		   if (engine.validMove(x, y, k, l)) {
-        	            			   engine.playMove(x, y, k, l);
+        	            			   score += engine.playMove(x, y, k, l);
         	            			   showTable();
         	            		   }
         	            	   }
