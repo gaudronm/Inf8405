@@ -4,12 +4,15 @@ import android.app.ActionBar.LayoutParams;
 import android.app.Activity;
 import android.content.ClipData;
 import android.content.ClipDescription;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.DragEvent;
 import android.view.View;
@@ -108,6 +111,10 @@ public class GameActivityTime extends Activity {
     	                   }
     	            	   
     	            	   else{
+    	            		   SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+    	            		   SharedPreferences.Editor editor = preferences.edit();
+    	            		   editor.putInt("score", score);
+    	            		   editor.commit();
     	            		   Intent intent = new Intent(GameActivityTime.this, EndOfGameActivity.class);
     	            		   startActivity(intent);
     	            	   }

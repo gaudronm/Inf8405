@@ -12,7 +12,7 @@ public class ScoresActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scores);
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         for(int i = 1; i < 6; i++) {
         	int id = 0;
         	switch (i) {
@@ -29,12 +29,10 @@ public class ScoresActivity extends Activity {
         	}
         	int idScore = i * 10;
         	int score = preferences.getInt(Integer.toString(idScore), 0);
-        	if (score != 0) {
-        		String chaine = Integer.toString(i) + ". " + preferences.getString(Integer.toString(i), "null")
-        				+ " " + Integer.toString(score);
-        	    TextView vue = (TextView)findViewById(id);
-        	    vue.setText(chaine);
-        	}
+        	String chaine = Integer.toString(i) + ". " + preferences.getString(Integer.toString(i), "null")
+        			+ " " + Integer.toString(score);
+        	TextView vue = (TextView)findViewById(id);
+        	vue.setText(chaine);
         }
         
     } 
