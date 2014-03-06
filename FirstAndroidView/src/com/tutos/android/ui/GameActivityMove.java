@@ -22,7 +22,7 @@ import control.Engine;
 import stockage.Table;
 import stockage.Coordinate;
 
-public class GameActivity extends Activity {
+public class GameActivityMove extends Activity {
 	
 	Boolean first;
     ImageView firstIm;

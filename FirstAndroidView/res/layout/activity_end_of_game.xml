@@ -8,44 +8,37 @@
 
     <ImageView
         android:id="@+id/title"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
         android:layout_marginTop="20dp"
         android:src="@drawable/fdj"
         android:contentDescription="@string/image_content_description" />
 
-    
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:paddingTop="20dp"
-        android:text="@string/username"
-        android:textSize="15sp"
-        android:textColor="#000000" />
 
     <EditText
         android:id="@+id/username"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:inputType="text"
-        android:layout_gravity="center" />
+        android:layout_marginTop="60dp"
+        android:layout_gravity="center"
+        android:textColor="@color/white" />
     
 
     <Button
         android:id="@+id/connect"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:minWidth="64dp"
         android:text="@string/connect"
         android:textColor="@color/white" />
     
     <Button
         android:id="@+id/createAcount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
         android:layout_gravity="center"
         android:layout_marginTop="40dp"
         android:text="@string/create_account" 
@@ -54,8 +47,8 @@
     
     <Button
         android:id="@+id/ignore"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
         android:layout_gravity="center"
         android:layout_marginTop="40dp"
         android:text="@string/ignore" 

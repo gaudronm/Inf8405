@@ -19,7 +19,7 @@ public class ModeActivity extends Activity {
       			
         @Override
         public void onClick(View v) {
-      	Intent intent = new Intent(ModeActivity.this, GameActivity.class);
+      	Intent intent = new Intent(ModeActivity.this, GameActivityTime.class);
       	startActivity(intent);
       	}
       });
@@ -29,7 +29,7 @@ public class ModeActivity extends Activity {
       			
         @Override
         public void onClick(View v) {
-      	Intent intent = new Intent(ModeActivity.this, GameActivity.class);
+      	Intent intent = new Intent(ModeActivity.this, GameActivityMove.class);
       	startActivity(intent);
       	}
       });

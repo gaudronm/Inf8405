@@ -8,6 +8,7 @@
 	<string name="connect">Se connecter</string>
 	<string name="title_activity_main">main_activity</string>
 	<string name="mode">Dans quel mode souhaitez-vous jouer ?</string>
+	<string name="elapsed_time">Temps écoulé : </string>
 	<string name="choice">Que souhaitez-vous faire ?</string>
 	<string name="button1">Meilleurs scores</string>
 	<string name="button2">Modes de jeu</string>
@@ -28,7 +29,8 @@
 	<string name="tps_mvts">xxx</string>
 	<string name="xxx">xxx</string>
 	<string name="title_activity_exit">exit_activity</string>
-	<string name="title_activity_game">game_activity</string>
+	<string name="title_activity_game_time">game_activity_time</string>
+	<string name="title_activity_game_move">game_activity_move</string>
 	<string name="title_activity_mode">mode_activity</string>
 	<string name="ignore">ignorer</string>
 	<color name="black">#000000</color>
