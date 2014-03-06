@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center_horizontal"
-    android:orientation="vertical" >
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:background="@drawable/background" >
 
     <TextView
         android:id="@+id/textView1"
@@ -11,26 +12,29 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center|fill_vertical"
         android:gravity="center_horizontal"
-        android:text="Dans quel mode souhaitez-vous jouer ?"
+        android:text="@string/mode"
+        android:textColor="@color/white"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="35sp" />
+        android:textSize="40sp" />
 
     <Button
         android:id="@+id/limited_time_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
         android:layout_gravity="center"
-        android:layout_marginTop="60dp"
-        android:textSize="20sp"
-        android:text="@string/button_time" />
+        android:layout_marginTop="200dp"
+        android:textSize="30sp"
+        android:text="@string/button_time"
+        android:textColor="@color/white" />
 
     <Button
         android:id="@+id/limited_moves_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
         android:layout_gravity="center"
         android:layout_marginTop="60dp"
-        android:textSize="20sp"
-        android:text="@string/button_moves" />
+        android:textSize="30sp"
+        android:text="@string/button_moves"
+        android:textColor="@color/white" />
 
 </LinearLayout>

@@ -7,6 +7,8 @@
 	<string name="username">utilisateur</string>
 	<string name="connect">Se connecter</string>
 	<string name="title_activity_main">main_activity</string>
+	<string name="mode">Dans quel mode souhaitez-vous jouer ?</string>
+	<string name="choice">Que souhaitez-vous faire ?</string>
 	<string name="button1">Meilleurs scores</string>
 	<string name="button2">Modes de jeu</string>
 	<string name="button3">Quitter</string>
@@ -29,4 +31,6 @@
 	<string name="title_activity_game">game_activity</string>
 	<string name="title_activity_mode">mode_activity</string>
 	<string name="ignore">ignorer</string>
+	<color name="black">#000000</color>
+	<color name="white">#FFFFFF</color>
 </resources>

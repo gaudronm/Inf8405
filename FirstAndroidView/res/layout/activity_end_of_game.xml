@@ -1,7 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:background="@drawable/background" >
 
     <ImageView
         android:id="@+id/title"
@@ -36,7 +39,8 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:minWidth="64dp"
-        android:text="@string/connect" />
+        android:text="@string/connect"
+        android:textColor="@color/white" />
     
     <Button
         android:id="@+id/createAcount"
@@ -44,7 +48,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="40dp"
-        android:text="@string/create_account" />
+        android:text="@string/create_account" 
+        android:textColor="@color/white"/>
     
     
     <Button
@@ -53,6 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="40dp"
-        android:text="@string/ignore" />
+        android:text="@string/ignore" 
+        android:textColor="@color/white"/>
 
 </LinearLayout>

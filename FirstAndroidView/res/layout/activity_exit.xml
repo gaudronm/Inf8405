@@ -2,32 +2,37 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_vertical|center_horizontal"
-    android:orientation="vertical" >
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:background="@drawable/background" >
 
     <TextView
         android:id="@+id/confirmation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Que voulez-vous faire ?"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:text="@string/choice"
+        android:textSize="40sp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/white"/>
 
     <Button
         android:id="@+id/start_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
         android:layout_gravity="center"
-        android:layout_marginTop="60dp"
-        android:textSize="20sp"
-        android:text="@string/button_start" />
+        android:layout_marginTop="200dp"
+        android:textSize="30sp"
+        android:text="@string/button_start"
+        android:textColor="@color/white" />
 
     <Button
         android:id="@+id/exit_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
         android:layout_gravity="center"
         android:layout_marginTop="60dp"
-        android:textSize="20sp"
-        android:text="@string/button_exit" />
+        android:textSize="30sp"
+        android:text="@string/button_exit"
+        android:textColor="@color/white" />
 
 </LinearLayout>
