@@ -55,9 +55,11 @@ public class ScoresActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				/*
-				 * bla bla
-				 */
+				SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+				SharedPreferences.Editor editor = preferences.edit();
+				editor.clear();
+				Intent intent = new Intent(ScoresActivity.this, ScoresActivity.class);
+				startActivity(intent);
 			}
 		});
         
