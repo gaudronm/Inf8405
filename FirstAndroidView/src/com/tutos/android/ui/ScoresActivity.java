@@ -58,6 +58,7 @@ public class ScoresActivity extends Activity {
 				SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 				SharedPreferences.Editor editor = preferences.edit();
 				editor.clear();
+				editor.commit();
 				Intent intent = new Intent(ScoresActivity.this, ScoresActivity.class);
 				startActivity(intent);
 			}
