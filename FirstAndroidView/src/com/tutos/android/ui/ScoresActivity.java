@@ -39,7 +39,7 @@ public class ScoresActivity extends Activity {
         	vue.setText(chaine);
         }
         
-        final Button returnButton = (Button) findViewById(R.id.ignore2);
+        final Button returnButton = (Button) findViewById(R.id.buttonReturn);
 		returnButton.setOnClickListener(new OnClickListener() {
 
 			@Override

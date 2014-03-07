@@ -60,7 +60,7 @@
         android:textColor="@color/white"/>
     
     <Button
-        android:id="@+id/ignore2"
+        android:id="@+id/buttonReturn"
         android:layout_width="300dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
