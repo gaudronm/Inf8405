@@ -51,7 +51,7 @@ public class ScoresActivity extends Activity {
 		
 		
 		final Button resetButton = (Button) findViewById(R.id.reset);
-		returnButton.setOnClickListener(new OnClickListener() {
+		resetButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
