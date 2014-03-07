@@ -51,13 +51,16 @@ public class ScoresActivity extends Activity {
 		
 		
 		final Button resetButton = (Button) findViewById(R.id.reset);
-		returnButton.setOnClickListener(new OnClickListener() {
+		resetButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				/*
-				 * bla bla
-				 */
+				SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+				SharedPreferences.Editor editor = preferences.edit();
+				editor.clear();
+				editor.commit();
+				Intent intent = new Intent(ScoresActivity.this, ScoresActivity.class);
+				startActivity(intent);
 			}
 		});
         

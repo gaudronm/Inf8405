@@ -106,7 +106,7 @@ public class GameActivityTime extends Activity {
         	            		   int l = id2 / 10;
         	            		   if (engine.validMove(x, y, k, l)) {
         	            			   score +=  engine.playMove(x, y, k, l);
-    		            			   final TextView textViewScore = (TextView) findViewById(R.id.textView_score_move);
+    		            			   final TextView textViewScore = (TextView) findViewById(R.id.textView_score_time);
     		            			   textViewScore.setText(""+score);
     		            			   showTable();
         	            		   }
