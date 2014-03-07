@@ -69,19 +69,19 @@ public class GameActivityTime extends Activity {
     	            int color = table.getColor(i,j);
     	            
     	            switch (color){
-    	            	case 1 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej1),100,100));
+    	            	case 1 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej1),50,50));
     	            	break;
     	            	
-    	            	case 2 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej2),100,100));
+    	            	case 2 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej2),50,50));
     	            	break;
     	            	
-    	            	case 3 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej3),100,100));
+    	            	case 3 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej3),50,50));
     	            	break;
     	            	
-    	            	case 4 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej4),100,100));
+    	            	case 4 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej4),50,50));
     	            	break;
     	            	
-    	            	case 5 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej5),100,100));
+    	            	case 5 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej5),50,50));
     	            	break;
 
     	            }
@@ -169,19 +169,19 @@ public class GameActivityTime extends Activity {
 				int color = table.getColor(i,j);
 				System.out.println(color);
 				switch (color){
-					case 1 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej1),100,100));
+					case 1 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej1),50,50));
 					break;
           	
-          			case 2 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej2),100,100));
+          			case 2 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej2),50,50));
           			break;
           	
-          			case 3 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej3),100,100));
+          			case 3 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej3),50,50));
           			break;
            	
-           			case 4 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej4),100,100));
+           			case 4 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej4),50,50));
            			break;
            	
-           			case 5 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej5),100,100));
+           			case 5 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej5),50,50));
            			break;
 					}
 				}
