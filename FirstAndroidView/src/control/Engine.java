@@ -139,7 +139,7 @@ public class Engine {
 	 */
 	private int breakComb(int x, int y, int color) {
 		int i;
-		int score = 300;
+		int score = 100;
 		switch (combination(x, y, color)) {
 		case 1:
 			table.setColor(x, y, 0);
@@ -148,13 +148,13 @@ public class Engine {
 			i = -3;
 			while ((x + i >= 0) && (table.getColor(x + i, y) == color)) {
 				table.setColor(x + i, y, 0);
-				score += 100;
+				score += 50;
 				i--;
 			}
 			i = 1;
 			while ((x + i <= 7) && (table.getColor(x + i, y) == color)) {
 				table.setColor(x + i, y, 0);
-				score += 100;
+				score += 50;
 				i++;
 			}
 			return score;
@@ -165,7 +165,7 @@ public class Engine {
 			i = 2;
 			while ((x + i <= 7) && (table.getColor(x + i, y) == color)) {
 				table.setColor(x + i, y, 0);
-				score += 100;
+				score += 50;
 				i++;
 			}
 			return score;
@@ -176,7 +176,7 @@ public class Engine {
 			i = 3;
 			while ((x + i <= 7) && (table.getColor(x + i, y) == color)) {
 				table.setColor(x + i, y, 0);
-				score += 100;
+				score += 50;
 				i++;
 			}
 			return score;
@@ -187,13 +187,13 @@ public class Engine {
 			i = -3;
 			while ((y + i >= 0) && (table.getColor(x, y + i) == color)) {
 				table.setColor(x, y + i, 0);
-				score += 100;
+				score += 50;
 				i--;
 			}
 			i = 1;
 			while ((y + i <= 7) && (table.getColor(x, y + i) == color)) {
 				table.setColor(x, y + i, 0);
-				score += 100;
+				score += 50;
 				i++;
 			}
 			return score;
@@ -204,7 +204,7 @@ public class Engine {
 			i = 2;
 			while ((y + i <= 7) && (table.getColor(x, y + i) == color)) {
 				table.setColor(x, y + i, 0);
-				score += 100;
+				score += 50;
 				i++;
 			}
 			return score;
@@ -215,7 +215,7 @@ public class Engine {
 			i = 3;
 			while ((y + i <= 7) && (table.getColor(x, y + i) == color)) {
 				table.setColor(x, y + i, 0);
-				score += 100;
+				score += 50;
 				i++;
 			}
 			return score;
