@@ -99,14 +99,11 @@ public class GameActivityMove extends Activity {
 		            			   final TextView textViewScore = (TextView) findViewById(R.id.textView_score_move);
 		            			   textViewScore.setText(""+score);
 		            			   showTable();
+		            			   nbCoups ++;
+			   	            	   final TextView remainingMoves = (TextView) findViewById(R.id.textView_moves);
+			   	            	   remainingMoves.setText(""+nbCoups);
 		            		   }
 		            	   }
-	            		   nbCoups ++;
-	   	            	   final TextView remainingMoves = (TextView) findViewById(R.id.textView_moves);
-	   	            	   
-	   	            	   if(nbCoups%2==0){
-	   	            		   remainingMoves.setText(""+nbCoups/2);
-	   	            	   }
 	            	   }
 	            	   
 	            	   else{
