@@ -1,4 +1,4 @@
-package com.tutos.android.ui;
+package example.view;
 
 import android.app.ActionBar.LayoutParams;
 import android.app.Activity;
@@ -25,9 +25,9 @@ import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-import control.Engine;
-import stockage.Table;
-import stockage.Coordinate;
+import example.control.Engine;
+import example.stockage.Coordinate;
+import example.stockage.Table;
 
 public class GameActivityTime extends Activity {
 	
@@ -69,19 +69,19 @@ public class GameActivityTime extends Activity {
     	            int color = table.getColor(i,j);
     	            
     	            switch (color){
-    	            	case 1 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej1),50,50));
+    	            	case 1 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej1),100,100));
     	            	break;
     	            	
-    	            	case 2 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej2),50,50));
+    	            	case 2 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej2),100,100));
     	            	break;
     	            	
-    	            	case 3 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej3),50,50));
+    	            	case 3 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej3),100,100));
     	            	break;
     	            	
-    	            	case 4 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej4),50,50));
+    	            	case 4 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej4),100,100));
     	            	break;
     	            	
-    	            	case 5 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej5),50,50));
+    	            	case 5 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej5),100,100));
     	            	break;
 
     	            }
@@ -169,19 +169,19 @@ public class GameActivityTime extends Activity {
 				int color = table.getColor(i,j);
 				System.out.println(color);
 				switch (color){
-					case 1 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej1),50,50));
+					case 1 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej1),100,100));
 					break;
           	
-          			case 2 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej2),50,50));
+          			case 2 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej2),100,100));
           			break;
           	
-          			case 3 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej3),50,50));
+          			case 3 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej3),100,100));
           			break;
            	
-           			case 4 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej4),50,50));
+           			case 4 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej4),100,100));
            			break;
            	
-           			case 5 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej5),50,50));
+           			case 5 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej5),100,100));
            			break;
 					}
 				}

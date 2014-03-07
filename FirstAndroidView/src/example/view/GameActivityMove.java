@@ -1,4 +1,5 @@
-package com.tutos.android.ui;
+package example.view;
+
 
 import android.app.ActionBar.LayoutParams;
 import android.app.Activity;
@@ -21,9 +22,9 @@ import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-import control.Engine;
-import stockage.Table;
-import stockage.Coordinate;
+import example.control.Engine;
+import example.stockage.Coordinate;
+import example.stockage.Table;
 
 public class GameActivityMove extends Activity {
 	
@@ -81,7 +82,7 @@ public class GameActivityMove extends Activity {
 	            iv.setOnClickListener(new View.OnClickListener() {
 	            	@Override
 	            	public void onClick(View v) {
-	            	   if(nbCoups<20){
+	            	   if(nbCoups<10){
 	            		   if (first) {
 		            		   first = false;
 		            		   firstIm = (ImageView) v;

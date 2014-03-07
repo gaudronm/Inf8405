@@ -1,4 +1,5 @@
-package com.tutos.android.ui;
+package example.view;
+
 
 import android.app.Activity;
 import android.content.Intent;

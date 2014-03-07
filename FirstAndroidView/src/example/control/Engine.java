@@ -1,11 +1,11 @@
-package control;
+package example.control;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import stockage.Coordinate;
-import stockage.Table;
+import example.stockage.Coordinate;
+import example.stockage.Table;
 
 public class Engine {
 

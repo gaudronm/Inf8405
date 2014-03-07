@@ -1,4 +1,4 @@
-package stockage;
+package example.stockage;
 
 public class Table {
 

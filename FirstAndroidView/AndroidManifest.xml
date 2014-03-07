@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.tutos.android.ui"
+    package="example.view"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme" 
         android:debuggable="true">
         <activity
-            android:name=".MainActivity"
+            android:name="example.view.MainActivity"
             android:label="@string/title_activity_main" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,32 +23,32 @@
         </activity>
         
         <activity
-            android:name=".EndOfGameActivity"
+            android:name="example.view.EndOfGameActivity"
             android:label="@string/title_activity_end" >
         </activity>
         
          <activity
-            android:name=".GameActivityTime"
+            android:name="example.view.GameActivityTime"
             android:label="@string/title_activity_game_time" >
         </activity>
         
          <activity
-            android:name=".GameActivityMove"
+            android:name="example.view.GameActivityMove"
             android:label="@string/title_activity_game_move" >
         </activity>
         
         <activity
-            android:name=".ScoresActivity"
+            android:name="example.view.ScoresActivity"
             android:label="@string/title_activity_scores" >
         </activity>
         
         <activity
-            android:name=".ExitActivity"
+            android:name="example.view.ExitActivity"
             android:label="@string/title_activity_exit" >
         </activity>
         
         <activity
-            android:name=".ModeActivity"
+            android:name="example.view.ModeActivity"
             android:label="@string/title_activity_mode" >
         </activity>
         
