@@ -26,8 +26,8 @@
 	<string name="score5">5. XXX</string>
 	<string name="button_start">Je veux recommencer</string>
 	<string name="button_exit">Je veux quitter</string>
-	<string name="button_time">Temps limité</string>
-	<string name="button_moves">Mouvements limités</string>
+	<string name="button_time">Temps limité (60sec)</string>
+	<string name="button_moves">Mouvements limités (10)</string>
 	<string name="exit_game">quitter</string>
 	<string name="current_score">xxx</string>
 	<string name="tps_mvts">xxx</string>
