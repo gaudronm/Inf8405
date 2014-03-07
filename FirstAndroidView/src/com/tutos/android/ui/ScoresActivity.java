@@ -48,6 +48,18 @@ public class ScoresActivity extends Activity {
 				startActivity(intent);
 			}
 		}); 
+		
+		
+		final Button resetButton = (Button) findViewById(R.id.reset);
+		returnButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				/*
+				 * bla bla
+				 */
+			}
+		});
         
     } 
 }

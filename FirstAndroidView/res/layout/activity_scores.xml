@@ -67,5 +67,14 @@
         android:layout_marginTop="40dp"
         android:text="@string/retour" 
         android:textColor="@color/white"/>
+    
+    <Button
+        android:id="@+id/reset"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:text="@string/reset" 
+        android:textColor="@color/white"/>
 
 </LinearLayout>

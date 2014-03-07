@@ -16,6 +16,7 @@
 	<string name="scores">Voici les scores : </string>
 	<string name="title_activity_scores">scores_activity</string>
 	<string name="retour">Retour à la page principale</string>
+	<string name="reset">Reinitialiser les scores</string>
 	<string name="moves">mouvements utilisés : </string>
 	<string name="score_display">score : </string>
 	<string name="score1">1. XXX </string>
