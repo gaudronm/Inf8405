@@ -24,6 +24,7 @@ import android.widget.Chronometer;
 import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
 import control.Engine;
 import stockage.Table;
 import stockage.Coordinate;
@@ -104,8 +105,10 @@ public class GameActivityTime extends Activity {
         	            		   int k = id2 % 10;
         	            		   int l = id2 / 10;
         	            		   if (engine.validMove(x, y, k, l)) {
-        	            			   score += engine.playMove(x, y, k, l);
-        	            			   showTable();
+        	            			   score +=  engine.playMove(x, y, k, l);
+    		            			   final TextView textViewScore = (TextView) findViewById(R.id.textView_score_move);
+    		            			   textViewScore.setText(""+score);
+    		            			   showTable();
         	            		   }
         	            	   }
     	                   }

@@ -60,7 +60,6 @@ public class GameActivityMove extends Activity {
 	        	ImageView iv = new ImageView(this);
 	            
 	            int color = table.getColor(i,j);
-	            System.out.println(color);
 	            switch (color){
 	            	case 1 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej1),100,100));
 	            	break;
@@ -96,8 +95,10 @@ public class GameActivityMove extends Activity {
 		            		   int k = id2 % 10;
 		            		   int l = id2 / 10;
 		            		   if (engine.validMove(x, y, k, l)) {
-		            			   engine.playMove(x, y, k, l);
-		            			   ShowTable();
+		            			   score +=  engine.playMove(x, y, k, l);
+		            			   final TextView textViewScore = (TextView) findViewById(R.id.textView_score_move);
+		            			   textViewScore.setText(""+score);
+		            			   showTable();
 		            		   }
 		            	   }
 	            		   nbCoups ++;
@@ -131,7 +132,7 @@ public class GameActivityMove extends Activity {
         
     }
     
-    private void ShowTable() {
+    private void showTable() {
     	table = engine.getTable();
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 8; j++) {
