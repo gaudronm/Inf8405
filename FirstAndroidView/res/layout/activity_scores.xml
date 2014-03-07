@@ -58,5 +58,14 @@
         android:textSize="30sp"
         android:text="@string/score5" 
         android:textColor="@color/white"/>
+    
+    <Button
+        android:id="@+id/ignore2"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:text="@string/retour" 
+        android:textColor="@color/white"/>
 
 </LinearLayout>

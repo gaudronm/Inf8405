@@ -45,6 +45,16 @@ public class EndOfGameActivity extends Activity {
 		      	startActivity(intent);
 	      	}
         });
+        
+        final Button ignoreButton = (Button) findViewById(R.id.ignore);
+		ignoreButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(EndOfGameActivity.this, MainActivity.class);
+				startActivity(intent);
+			}
+		});
     } 
 }
 
