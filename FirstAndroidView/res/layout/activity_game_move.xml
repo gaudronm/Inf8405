@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/TableLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical|center_horizontal"
+    android:orientation="vertical" 
+    android:background="@color/black">
+
+    <TableRow
+        android:id="@+id/tableRow2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="70dp" >
+
+
+        <Button
+            android:id="@+id/button2"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/exit_game"
+            android:textColor="@color/white" 
+            android:textSize="30sp"
+            android:layout_margin="40dp"
+            />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/moves"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/white" 
+            android:textSize="30sp"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="30dp"
+             />
+        
+        <TextView
+            android:id="@+id/textView_moves"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/white" 
+            android:textSize="30sp"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="20dp"
+             />
+        
+        <TextView
+            android:id="@+id/textView_text_score_move"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/score_display"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/white" 
+            android:textSize="30sp"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="30dp"
+             />
+        
+        <TextView
+            android:id="@+id/textView_score_move"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/white" 
+            android:textSize="30sp"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="20dp"
+             />
+        
+        
+        
+    </TableRow>
+
+    <TableLayout 
+    android:id="@+id/TableLayoutMove"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical|center_horizontal"
+    android:orientation="vertical" 
+    android:background="@color/black">
+
+        
+    </TableLayout>
+
+</TableLayout>

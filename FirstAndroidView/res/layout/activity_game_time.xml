@@ -17,14 +17,14 @@
 
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/button2"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/exit_game"
             android:textColor="@color/white" 
-            android:textSize="20sp"
-            android:layout_margin="50dp"
+            android:textSize="30sp"
+            android:layout_margin="40dp"
             />
 
         <TextView
@@ -35,8 +35,8 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@color/white" 
             android:textSize="30sp"
-            android:layout_marginTop="50dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="30dp"
              />
         
         <Chronometer
@@ -46,14 +46,38 @@
 	        android:layout_height="wrap_content"
 	        android:textSize="30sp"
 	        android:textColor="@color/white"
-	        android:layout_marginTop="50dp"
+	        android:layout_marginTop="40dp"
 	        android:layout_marginLeft="20dp"
 	        />
+        
+        <TextView
+            android:id="@+id/textView_text_score_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/score_display"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/white" 
+            android:textSize="30sp"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="30dp"
+             />
+        
+        <TextView
+            android:id="@+id/textView_score_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/white" 
+            android:textSize="30sp"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="20dp"
+             />
         
     </TableRow>
 
     <TableLayout 
-    android:id="@+id/TableLayout"
+    android:id="@+id/TableLayoutTime"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_vertical|center_horizontal"

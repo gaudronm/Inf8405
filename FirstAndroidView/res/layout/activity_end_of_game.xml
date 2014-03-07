@@ -35,15 +35,6 @@
         android:text="@string/connect"
         android:textColor="@color/white" />
     
-    <Button
-        android:id="@+id/createAcount"
-        android:layout_width="300dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="40dp"
-        android:text="@string/create_account" 
-        android:textColor="@color/white"/>
-    
     
     <Button
         android:id="@+id/ignore"

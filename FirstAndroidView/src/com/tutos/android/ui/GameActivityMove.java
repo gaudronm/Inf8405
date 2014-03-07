@@ -5,10 +5,12 @@ import android.app.Activity;
 import android.content.ClipData;
 import android.content.ClipDescription;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.DragEvent;
 import android.view.View;
 import android.view.View.DragShadowBuilder;
@@ -18,6 +20,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
 import control.Engine;
 import stockage.Table;
 import stockage.Coordinate;
@@ -29,11 +32,12 @@ public class GameActivityMove extends Activity {
     Engine engine;
     Table table;
     int score;
+    int nbCoups = 0;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.game);
+        setContentView(R.layout.activity_game_move);
         firstIm = new ImageView(this);
         first = true;
         score = 0;
@@ -42,9 +46,10 @@ public class GameActivityMove extends Activity {
         
         table = engine.getTable(); 
         
-        final TableLayout grid = (TableLayout)this.findViewById(R.id.TableLayout1);
+        final TableLayout grid = (TableLayout)this.findViewById(R.id.TableLayoutMove);
         grid.setShrinkAllColumns(true);
 
+        
         
         for (int i = 0; i < 8; i++) {
 
@@ -75,25 +80,43 @@ public class GameActivityMove extends Activity {
 	            }
 	            iv.setId(i+10*j);
 	            iv.setOnClickListener(new View.OnClickListener() {
-	               @Override
-	               public void onClick(View v) {
-	            	   if (first) {
-	            		   first = false;
-	            		   firstIm = (ImageView) v;
+	            	@Override
+	            	public void onClick(View v) {
+	            	   if(nbCoups<20){
+	            		   if (first) {
+		            		   first = false;
+		            		   firstIm = (ImageView) v;
+		            	   }
+		            	   else {
+		            		   first = true;
+		            		   int id1 = firstIm.getId();
+		            		   int x = id1 % 10;
+		            		   int y = id1 / 10;
+		            		   int id2 = ((ImageView) v).getId();
+		            		   int k = id2 % 10;
+		            		   int l = id2 / 10;
+		            		   if (engine.validMove(x, y, k, l)) {
+		            			   engine.playMove(x, y, k, l);
+		            			   ShowTable();
+		            		   }
+		            	   }
+	            		   nbCoups ++;
+	   	            	   final TextView remainingMoves = (TextView) findViewById(R.id.textView_moves);
+	   	            	   
+	   	            	   if(nbCoups%2==0){
+	   	            		   remainingMoves.setText(""+nbCoups/2);
+	   	            	   }
 	            	   }
-	            	   else {
-	            		   first = true;
-	            		   int id1 = firstIm.getId();
-	            		   int x = id1 % 10;
-	            		   int y = id1 / 10;
-	            		   int id2 = ((ImageView) v).getId();
-	            		   int k = id2 % 10;
-	            		   int l = id2 / 10;
-	            		   if (engine.validMove(x, y, k, l)) {
-	            			   engine.playMove(x, y, k, l);
-	            			   ShowTable();
-	            		   }
+	            	   
+	            	   else{
+	            		   SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+	            		   SharedPreferences.Editor editor = preferences.edit();
+	            		   editor.putInt("score", score);
+	            		   editor.commit();
+	            		   Intent intent = new Intent(GameActivityMove.this, EndOfGameActivity.class);
+	            		   startActivity(intent);
 	            	   }
+	            	
 	               }
 	            });
 	        

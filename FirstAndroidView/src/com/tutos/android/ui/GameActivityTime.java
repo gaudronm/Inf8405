@@ -40,7 +40,7 @@ public class GameActivityTime extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.game);
+        setContentView(R.layout.activity_game_time);
         firstIm = new ImageView(this);
         first = true;
         score = 0;
@@ -49,7 +49,7 @@ public class GameActivityTime extends Activity {
         
         table = engine.getTable(); 
         
-        final TableLayout grid = (TableLayout)this.findViewById(R.id.TableLayout);
+        final TableLayout grid = (TableLayout)this.findViewById(R.id.TableLayoutTime);
         grid.setShrinkAllColumns(true);
 
 

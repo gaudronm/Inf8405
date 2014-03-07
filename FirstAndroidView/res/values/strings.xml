@@ -15,6 +15,8 @@
 	<string name="button3">Quitter</string>
 	<string name="scores">Voici les scores : </string>
 	<string name="title_activity_scores">scores_activity</string>
+	<string name="moves">mouvements utilisés : </string>
+	<string name="score_display">score : </string>
 	<string name="score1">1. XXX </string>
 	<string name="score2">2. XXX</string>
 	<string name="score3">3. XXX</string>
