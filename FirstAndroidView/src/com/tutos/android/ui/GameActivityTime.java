@@ -133,7 +133,15 @@ public class GameActivityTime extends Activity {
 
             }
         
-               	
+        	final Button exitButton = (Button) findViewById(R.id.buttonQuitTime);
+    		exitButton.setOnClickListener(new OnClickListener() {
+
+    			@Override
+    			public void onClick(View v) {
+    				Intent intent = new Intent(GameActivityTime.this, ExitActivity.class);
+    				startActivity(intent);
+    			}
+    		});     	
         
         
     }
