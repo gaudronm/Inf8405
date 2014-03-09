@@ -27,6 +27,11 @@
             android:label="@string/title_activity_end" >
         </activity>
         
+        <activity
+            android:name="example.view.RecordScoreActivity"
+            android:label="@string/title_activity_record_scores" >
+        </activity>
+        
          <activity
             android:name="example.view.GameActivityTime"
             android:label="@string/title_activity_game_time" >

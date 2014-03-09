@@ -9,7 +9,6 @@ import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 public class EndOfGameActivity extends Activity {
@@ -19,30 +18,22 @@ public class EndOfGameActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_end_of_game);
         
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+ 		final int score = preferences.getInt("score", 0);
+ 		
+ 		final TextView textViewScore = (TextView) findViewById(R.id.textViewScore);
+ 		textViewScore.setText(""+score);
+        
         final Button scoresButton = (Button) findViewById(R.id.connect);
         scoresButton.setOnClickListener(new OnClickListener() {
       			
 	        @Override
 	        public void onClick(View v) {
-		        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-		 		SharedPreferences.Editor editor = preferences.edit();
-		 		int score = preferences.getInt("score", 0);
-		 		EditText eTexte = (EditText)findViewById(R.id.username);	    
-		 		String name = eTexte.getText().toString();
-		 		for(int i = 1; i < 6; i++) {
-		 			int idScore = i * 10;
-		 			int tempScore = preferences.getInt(Integer.toString(idScore), 0);
-		 			if (score >= tempScore) {
-		 				String tempName = preferences.getString(Integer.toString(i), "null");
-		 				editor.putString(Integer.toString(i), name);
-		 				editor.commit();
-		 				editor.putInt(Integer.toString(idScore), score);
-		 				editor.commit();
-		 				score = tempScore;
-		 				name = tempName;
-		 			}
-		 		}
-		      	Intent intent = new Intent(EndOfGameActivity.this, ScoresActivity.class);
+	        	SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+	     		SharedPreferences.Editor editor = preferences.edit();
+	        	editor.putInt("score", score);
+     		   	editor.commit();
+		      	Intent intent = new Intent(EndOfGameActivity.this, RecordScoreActivity.class);
 		      	startActivity(intent);
 	      	}
         });

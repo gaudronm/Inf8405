@@ -13,16 +13,28 @@
         android:layout_marginTop="20dp"
         android:src="@drawable/fdj"
         android:contentDescription="@string/image_content_description" />
-
-
-    <EditText
-        android:id="@+id/username"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:inputType="text"
+    
+    <TextView
+        android:id="@+id/textViewScoreText"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:text="@string/obtained_score"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/white"
         android:layout_marginTop="60dp"
-        android:layout_gravity="center"
-        android:textColor="@color/white" />
+        android:textSize="30sp" />
+    
+    <TextView
+        android:id="@+id/textViewScore"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:text=""
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/white"
+        android:layout_marginTop="30dp"
+        android:textSize="30sp" />
     
 
     <Button
