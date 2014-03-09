@@ -78,6 +78,8 @@ public class GameActivityMove extends Activity {
 	            	break;
 
 	            }
+	            //on donne un identifiant à chaque element de la grille pour pouvoir
+	            //les modifier facilement par la suite
 	            iv.setId(i+10*j);
 	            iv.setOnClickListener(new View.OnClickListener() {
 	            	@Override
@@ -108,10 +110,13 @@ public class GameActivityMove extends Activity {
 	            	   }
 	            	   
 	            	   else{
+	            		   //cette partie sert à enregistrer le score dans une preference afin de pouvoir
+	            		   //le récupérer à partir d'une autre activité
 	            		   SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 	            		   SharedPreferences.Editor editor = preferences.edit();
 	            		   editor.putInt("score", score);
 	            		   editor.commit();
+	            		   
 	            		   Intent intent = new Intent(GameActivityMove.this, EndOfGameActivity.class);
 	            		   startActivity(intent);
 	            	   }

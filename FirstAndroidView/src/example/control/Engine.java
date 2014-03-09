@@ -142,16 +142,19 @@ public class Engine {
 		int score = 100;
 		switch (combination(x, y, color)) {
 		case 1:
+			//Les 2 cases précédentes en x sont de la même couleur.
 			table.setColor(x, y, 0);
 			table.setColor(x - 1, y, 0);
 			table.setColor(x - 2, y, 0);
 			i = -3;
+			//Il faut tester si les cases encore précédentes sont également de la même couleur.
 			while ((x + i >= 0) && (table.getColor(x + i, y) == color)) {
 				table.setColor(x + i, y, 0);
 				score += 50;
 				i--;
 			}
 			i = 1;
+			//Idem pour les cases directement après
 			while ((x + i <= 7) && (table.getColor(x + i, y) == color)) {
 				table.setColor(x + i, y, 0);
 				score += 50;
@@ -159,10 +162,13 @@ public class Engine {
 			}
 			return score;
 		case 2:
+			//La case précédente et la suivante en x sont de la même couleur.
 			table.setColor(x, y, 0);
 			table.setColor(x - 1, y, 0);
 			table.setColor(x + 1, y, 0);
 			i = 2;
+			//Par construction, les cases encore précédentes ne sont pas de la même couleur.
+			//On ne test alors que les cases suivantes
 			while ((x + i <= 7) && (table.getColor(x + i, y) == color)) {
 				table.setColor(x + i, y, 0);
 				score += 50;
@@ -170,16 +176,20 @@ public class Engine {
 			}
 			return score;
 		case 3:
+			//Les 2 cases suivantes en x son de la même couleur.
 			table.setColor(x, y, 0);
 			table.setColor(x + 1, y, 0);
 			table.setColor(x + 2, y, 0);
 			i = 3;
+			//Idem, on ne test que les suivantes 
 			while ((x + i <= 7) && (table.getColor(x + i, y) == color)) {
 				table.setColor(x + i, y, 0);
 				score += 50;
 				i++;
 			}
 			return score;
+			
+			//Idem en y.
 		case 4:
 			table.setColor(x, y, 0);
 			table.setColor(x, y - 1, 0);
@@ -346,25 +356,31 @@ public class Engine {
 	private int combination(int x, int y, int color) {
 		if ((x - 1 >= 0) && (table.getColor(x - 1, y) == color)) {
 			if ((x - 2 >= 0) && (table.getColor(x - 2, y) == color)) {
+				//les 2 cases précédentes en x (verticale) sont de la même couleur que la case en argument
 				return 1;
 			} else if ((x + 1 <= 7) && (table.getColor(x + 1, y) == color)) {
+				//la case précédente et la suivante en x sont de la même couleur que la case en argument
 				return 2;
 			}
 		}
 		if ((x + 1 <= 7) && (table.getColor(x + 1, y) == color)) {
 			if ((x + 2 <= 7) && (table.getColor(x + 2, y) == color)) {
+				//les 2 cases suivantes en x sont de la même couleur que la case en argument
 				return 3;
 			}
 		}
 		if ((y - 1 >= 0) && (table.getColor(x, y - 1) == color)) {
 			if ((y - 2 >= 0) && (table.getColor(x, y - 2) == color)) {
+				//les 2 cases précédentes en y (horizontale) sont de la même couleur que la case en argument
 				return 4;
 			} else if ((y + 1 <= 7) && (table.getColor(x, y + 1) == color)) {
+				//la case précédente et la suivante en y sont de la même couleur que la case en argument
 				return 5;
 			}
 		}
 		if ((y + 1 <= 7) && (table.getColor(x, y + 1) == color)) {
 			if ((y + 2 <= 7) && (table.getColor(x, y + 2) == color)) {
+				//les 2 cases suivantes en y sont de la même couleur que la case en argument
 				return 6;
 			}
 		}
