@@ -11,39 +11,39 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class ScoresActivity extends Activity {
-	
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-    	
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_scores);
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        
-        for(int i = 1; i < 6; i++) {
-        	int id = 0;
-        	switch (i) {
-        		case 1 : id = R.id.textView2;
-        		break;
-        		case 2 : id = R.id.textView3;
-        		break;
-        		case 3 : id = R.id.textView4;
-        		break;
-        		case 4 : id = R.id.textView5;
-        		break;
-        		case 5 : id = R.id.textView6;
-        		break;
-        	}
-        	int idScore = i * 10;
-        	
-        	//recupere de score et le nom depuis RecordScoreActivity
-        	int score = preferences.getInt(Integer.toString(idScore), 0);
-        	String chaine = Integer.toString(i) + ". " + preferences.getString(Integer.toString(i), "null")
-        			+ " " + Integer.toString(score);
-        	TextView vue = (TextView)findViewById(id);
-        	vue.setText(chaine);
-        }
-        
-        final Button returnButton = (Button) findViewById(R.id.buttonReturn);
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_scores);
+		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+
+		for(int i = 1; i < 6; i++) {
+			int id = 0;
+			switch (i) {
+				case 1 : id = R.id.textView2;
+				break;
+				case 2 : id = R.id.textView3;
+				break;
+				case 3 : id = R.id.textView4;
+				break;
+				case 4 : id = R.id.textView5;
+				break;
+				case 5 : id = R.id.textView6;
+				break;
+			}
+			int idScore = i * 10;
+
+			//recupere de score et le nom depuis RecordScoreActivity
+			int score = preferences.getInt(Integer.toString(idScore), 0);
+			String chaine = Integer.toString(i) + ". " + preferences.getString(Integer.toString(i), "null")
+					+ " " + Integer.toString(score);
+			TextView vue = (TextView)findViewById(id);
+			vue.setText(chaine);
+		}
+
+		final Button returnButton = (Button) findViewById(R.id.buttonReturn);
 		returnButton.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -52,7 +52,7 @@ public class ScoresActivity extends Activity {
 				startActivity(intent);
 			}
 		}); 
-		
+
 		//reinitialiser les scores
 		final Button resetButton = (Button) findViewById(R.id.reset);
 		resetButton.setOnClickListener(new OnClickListener() {
@@ -67,6 +67,6 @@ public class ScoresActivity extends Activity {
 				startActivity(intent);
 			}
 		});
-        
-    } 
+
+	} 
 }

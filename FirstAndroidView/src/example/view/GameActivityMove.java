@@ -27,112 +27,113 @@ import example.stockage.Coordinate;
 import example.stockage.Table;
 
 public class GameActivityMove extends Activity {
-	
+
 	Boolean first;
-    ImageView firstIm;
-    Engine engine;
-    Table table;
-    int score;
-    int nbCoups = 0;
+	ImageView firstIm;
+	Engine engine;
+	Table table;
+	int score;
+	int nbCoups = 0;
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_game_move);
+		firstIm = new ImageView(this);
+		first = true;
+		score = 0;
+		engine = new Engine();
+		engine.initPart();
+
+		table = engine.getTable(); 
+
+		final TableLayout grid = (TableLayout)this.findViewById(R.id.TableLayoutMove);
+		grid.setShrinkAllColumns(true);
+
+
+		//Instanciation de la grille
+		for (int i = 0; i < 8; i++) {
+
+			TableRow tr = new TableRow(this);
+			tr.setLayoutParams(new TableRow.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
+
+			for (int j = 0; j < 8; j++) {
+				ImageView iv = new ImageView(this);
+
+				int color = table.getColor(i,j);
+				switch (color){
+				
+					case 1 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej1),100,100));
+					break;
+
+					case 2 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej2),100,100));
+					break;
 	
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game_move);
-        firstIm = new ImageView(this);
-        first = true;
-        score = 0;
-        engine = new Engine();
-        engine.initPart();
-        
-        table = engine.getTable(); 
-        
-        final TableLayout grid = (TableLayout)this.findViewById(R.id.TableLayoutMove);
-        grid.setShrinkAllColumns(true);
+					case 3 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej3),100,100));
+					break;
+	
+					case 4 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej4),100,100));
+					break;
+	
+					case 5 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej5),100,100));
+					break;
 
-       
-        //Instanciation de la grille
-        for (int i = 0; i < 8; i++) {
+				}
+				//on donne un identifiant à chaque element de la grille pour pouvoir
+				//les modifier facilement par la suite
+				iv.setId(i+10*j);
+				iv.setOnClickListener(new View.OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						if(nbCoups<10){
+							if (first) {
+								first = false;
+								firstIm = (ImageView) v;
+							}
+							else {
+								first = true;
+								int id1 = firstIm.getId();
+								int x = id1 % 10;
+								int y = id1 / 10;
+								int id2 = ((ImageView) v).getId();
+								int k = id2 % 10;
+								int l = id2 / 10;
+								if (engine.validMove(x, y, k, l)) {
+									score +=  engine.playMove(x, y, k, l);
+									final TextView textViewScore = (TextView) findViewById(R.id.textView_score_move);
+									textViewScore.setText(""+score);
+									showTable();
+									nbCoups ++;
+									final TextView remainingMoves = (TextView) findViewById(R.id.textView_moves);
+									remainingMoves.setText(""+nbCoups);
+								}
+							}
+						}
 
-            TableRow tr = new TableRow(this);
-            tr.setLayoutParams(new TableRow.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
+						else{
+							//cette partie sert à enregistrer le score dans une preference afin de pouvoir
+							//le récupérer à partir d'une autre activité
+							SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+							SharedPreferences.Editor editor = preferences.edit();
+							editor.putInt("score", score);
+							editor.commit();
 
-	        for (int j = 0; j < 8; j++) {
-	        	ImageView iv = new ImageView(this);
-	            
-	            int color = table.getColor(i,j);
-	            switch (color){
-	            	case 1 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej1),100,100));
-	            	break;
-	            	
-	            	case 2 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej2),100,100));
-	            	break;
-	            	
-	            	case 3 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej3),100,100));
-	            	break;
-	            	
-	            	case 4 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej4),100,100));
-	            	break;
-	            	
-	            	case 5 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej5),100,100));
-	            	break;
+							Intent intent = new Intent(GameActivityMove.this, EndOfGameActivity.class);
+							startActivity(intent);
+						}
 
-	            }
-	            //on donne un identifiant à chaque element de la grille pour pouvoir
-	            //les modifier facilement par la suite
-	            iv.setId(i+10*j);
-	            iv.setOnClickListener(new View.OnClickListener() {
-	            	@Override
-	            	public void onClick(View v) {
-	            	   if(nbCoups<10){
-	            		   if (first) {
-		            		   first = false;
-		            		   firstIm = (ImageView) v;
-		            	   }
-		            	   else {
-		            		   first = true;
-		            		   int id1 = firstIm.getId();
-		            		   int x = id1 % 10;
-		            		   int y = id1 / 10;
-		            		   int id2 = ((ImageView) v).getId();
-		            		   int k = id2 % 10;
-		            		   int l = id2 / 10;
-		            		   if (engine.validMove(x, y, k, l)) {
-		            			   score +=  engine.playMove(x, y, k, l);
-		            			   final TextView textViewScore = (TextView) findViewById(R.id.textView_score_move);
-		            			   textViewScore.setText(""+score);
-		            			   showTable();
-		            			   nbCoups ++;
-			   	            	   final TextView remainingMoves = (TextView) findViewById(R.id.textView_moves);
-			   	            	   remainingMoves.setText(""+nbCoups);
-		            		   }
-		            	   }
-	            	   }
-	            	   
-	            	   else{
-	            		   //cette partie sert à enregistrer le score dans une preference afin de pouvoir
-	            		   //le récupérer à partir d'une autre activité
-	            		   SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-	            		   SharedPreferences.Editor editor = preferences.edit();
-	            		   editor.putInt("score", score);
-	            		   editor.commit();
-	            		   
-	            		   Intent intent = new Intent(GameActivityMove.this, EndOfGameActivity.class);
-	            		   startActivity(intent);
-	            	   }
-	            	
-	               }
-	            });
-	        
-	            tr.addView(iv);
-	           
-	        }
-	        
-	        grid.addView(tr);
+					}
+				});
 
-        }
-        
-        final Button exitButton = (Button) findViewById(R.id.buttonQuitMove);
+				tr.addView(iv);
+
+			}
+
+			grid.addView(tr);
+
+		}
+
+		final Button exitButton = (Button) findViewById(R.id.buttonQuitMove);
 		exitButton.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -141,42 +142,42 @@ public class GameActivityMove extends Activity {
 				startActivity(intent);
 			}
 		});
-        
-        
-    }
-    
-    //affiche la grille
-    private void showTable() {
-    	table = engine.getTable();
+
+
+	}
+
+	//affiche la grille
+	private void showTable() {
+		table = engine.getTable();
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 8; j++) {
 				ImageView iv = (ImageView) findViewById(i+10*j);
 				int color = table.getColor(i,j);
-				
+
 				switch (color){
 					case 1 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej1),100,100));
 					break;
-          	
-          			case 2 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej2),100,100));
-          			break;
-          	
-          			case 3 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej3),100,100));
-          			break;
-           	
-           			case 4 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej4),100,100));
-           			break;
-           	
-           			case 5 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej5),100,100));
-           			break;
-					}
+	
+					case 2 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej2),100,100));
+					break;
+	
+					case 3 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej3),100,100));
+					break;
+	
+					case 4 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej4),100,100));
+					break;
+	
+					case 5 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej5),100,100));
+					break;
 				}
 			}
-    }
-    
-    //permet de redimensionner les gemmes
-    private Drawable resize(Drawable image, int x, int y) {
-        Bitmap b = ((BitmapDrawable)image).getBitmap();
-        Bitmap bitmapResized = Bitmap.createScaledBitmap(b, x, y, false);
-        return new BitmapDrawable(getResources(), bitmapResized);
-    }
+		}
+	}
+
+	//permet de redimensionner les gemmes
+	private Drawable resize(Drawable image, int x, int y) {
+		Bitmap b = ((BitmapDrawable)image).getBitmap();
+		Bitmap bitmapResized = Bitmap.createScaledBitmap(b, x, y, false);
+		return new BitmapDrawable(getResources(), bitmapResized);
+	}
 }

@@ -38,6 +38,6 @@ public class ExitActivity extends Activity {
 				startActivity(intent);
 			}
 		});
-		
+
 	} 
 }
