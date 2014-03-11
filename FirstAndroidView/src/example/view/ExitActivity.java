@@ -26,6 +26,7 @@ public class ExitActivity extends Activity {
 			}
 		});
 
+		//le exit_button permet de quitter l'application
 		final Button exitButton = (Button) findViewById(R.id.exit_button);
 		exitButton.setOnClickListener(new OnClickListener() {
 

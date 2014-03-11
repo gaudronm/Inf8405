@@ -18,6 +18,8 @@ public class EndOfGameActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_end_of_game);
         
+        
+        // on récupere le score obtenu dans la partie
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
  		final int score = preferences.getInt("score", 0);
  		

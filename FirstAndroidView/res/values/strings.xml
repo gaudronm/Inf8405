@@ -6,7 +6,7 @@
 	<string name="create_account">Créer un compte</string>
 	<string name="username">utilisateur</string>
 	<string name="connect">Enregistrer le score</string>
-	<string name="title_activity_main">main_activity</string>
+	<string name="title_activity_main">Bejeweled</string>
 	<string name="mode">Dans quel mode souhaitez-vous jouer ?</string>
 	<string name="name">Entrez votre nom :</string>
 	<string name="send">Envoyer</string>

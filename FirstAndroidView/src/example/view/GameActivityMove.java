@@ -50,8 +50,8 @@ public class GameActivityMove extends Activity {
         final TableLayout grid = (TableLayout)this.findViewById(R.id.TableLayoutMove);
         grid.setShrinkAllColumns(true);
 
-        
-        
+       
+        //Instanciation de la grille
         for (int i = 0; i < 8; i++) {
 
             TableRow tr = new TableRow(this);
@@ -145,13 +145,14 @@ public class GameActivityMove extends Activity {
         
     }
     
+    //affiche la grille
     private void showTable() {
     	table = engine.getTable();
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 8; j++) {
 				ImageView iv = (ImageView) findViewById(i+10*j);
 				int color = table.getColor(i,j);
-				System.out.println(color);
+				
 				switch (color){
 					case 1 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej1),100,100));
 					break;
@@ -172,6 +173,7 @@ public class GameActivityMove extends Activity {
 			}
     }
     
+    //permet de redimensionner les gemmes
     private Drawable resize(Drawable image, int x, int y) {
         Bitmap b = ((BitmapDrawable)image).getBitmap();
         Bitmap bitmapResized = Bitmap.createScaledBitmap(b, x, y, false);

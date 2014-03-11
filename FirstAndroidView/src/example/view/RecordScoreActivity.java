@@ -24,12 +24,16 @@ public class RecordScoreActivity extends Activity {
         	@Override
 	        public void onClick(View v) {
         	
+        		//recupere le score de la partie
 	        	SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 		 		SharedPreferences.Editor editor = preferences.edit();
 		 		int score = preferences.getInt("score", 0);
 		 		
+		 		//recupere le champ du EditText
 		 		EditText eTexte = (EditText)findViewById(R.id.username);	    
 		 		String name = eTexte.getText().toString();
+		 		
+		 		//Determiner si le score est dans les 5 meilleurs, si oui l'envoyer, avec le nom, à l'activité ScoresActivity
 		 		for(int i = 1; i < 6; i++) {
 		 			int idScore = i * 10;
 		 			int tempScore = preferences.getInt(Integer.toString(idScore), 0);

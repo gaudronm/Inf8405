@@ -14,9 +14,11 @@ public class ScoresActivity extends Activity {
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
+    	
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scores);
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        
         for(int i = 1; i < 6; i++) {
         	int id = 0;
         	switch (i) {
@@ -32,6 +34,8 @@ public class ScoresActivity extends Activity {
         		break;
         	}
         	int idScore = i * 10;
+        	
+        	//recupere de score et le nom depuis RecordScoreActivity
         	int score = preferences.getInt(Integer.toString(idScore), 0);
         	String chaine = Integer.toString(i) + ". " + preferences.getString(Integer.toString(i), "null")
         			+ " " + Integer.toString(score);
@@ -49,7 +53,7 @@ public class ScoresActivity extends Activity {
 			}
 		}); 
 		
-		
+		//reinitialiser les scores
 		final Button resetButton = (Button) findViewById(R.id.reset);
 		resetButton.setOnClickListener(new OnClickListener() {
 

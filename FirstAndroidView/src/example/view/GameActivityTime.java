@@ -53,11 +53,9 @@ public class GameActivityTime extends Activity {
         final TableLayout grid = (TableLayout)this.findViewById(R.id.TableLayoutTime);
         grid.setShrinkAllColumns(true);
 
-
+        startTimer(); // demarre le chronometre
         
-        startTimer();
-        
-        	
+        	//Instanciation de la grille
         	for (int i = 0; i < 8; i++) {
 
                 TableRow tr = new TableRow(this);
@@ -160,19 +158,21 @@ public class GameActivityTime extends Activity {
        
     }
     
+    //retourne le temps affichŽ par le chronometre
     private int getTime(){
     	long timeElapsed = SystemClock.elapsedRealtime() - chronometer.getBase();
         int seconds = (int) timeElapsed/ 1000;
         return seconds;
     }
     
+    //permet d'afficher la grille
     private void showTable() {
     	table = engine.getTable();
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 8; j++) {
 				ImageView iv = (ImageView) findViewById(i+10*j);
 				int color = table.getColor(i,j);
-				System.out.println(color);
+				
 				switch (color){
 					case 1 : iv.setImageDrawable(resize(getResources().getDrawable(R.drawable.bej1),100,100));
 					break;
@@ -193,6 +193,7 @@ public class GameActivityTime extends Activity {
 			}
     }
     
+    //permet de redimensionner les gemmes
     private Drawable resize(Drawable image, int x, int y) {
         Bitmap b = ((BitmapDrawable)image).getBitmap();
         Bitmap bitmapResized = Bitmap.createScaledBitmap(b, x, y, false);
